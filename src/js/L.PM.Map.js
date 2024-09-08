@@ -32,6 +32,7 @@ const Map = L.Class.extend({
         'Line',
         'Polygon',
         'Rectangle',
+        'BezierCurve',
       ],
       panes: {
         vertexPane: 'markerPane',

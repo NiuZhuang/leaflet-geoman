@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@elfalem/leaflet-curve':
+    specifier: ^0.9.2
+    version: 0.9.2(leaflet@1.9.3)
   '@turf/boolean-contains':
     specifier: ^6.5.0
     version: 6.5.0
@@ -137,6 +140,16 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@elfalem/leaflet-curve@0.9.2(leaflet@1.9.3):
+    resolution: {integrity: sha512-vHhJZvkTHHQsOeEPRnTYpKjmWZ7DEKVJ7rHh1xeksTi/maoxK3dCd6o59LoT3Uk6kNIvmzwrOFMHN3T+WfsbwA==}
+    peerDependencies:
+      leaflet: ^1.1.0
+    dependencies:
+      leaflet: 1.9.3
+    optionalDependencies:
+      '@tweenjs/tween.js': 17.6.0
+    dev: false
 
   /@esbuild/aix-ppc64@0.20.1:
     resolution: {integrity: sha512-m55cpeupQ2DbuRGQMMZDzbv9J9PgVelPjlcmM5kxHnrBdBx6REaEd7LamYV7Dm8N7rCyR/XwU6rVP8ploKtIkA==}
@@ -605,6 +618,12 @@ packages:
       '@turf/helpers': 6.5.0
       '@turf/meta': 6.5.0
     dev: false
+
+  /@tweenjs/tween.js@17.6.0:
+    resolution: {integrity: sha512-utSXj0WHi4qr/iyfFHGMJBaL+ixQ2N7BAmx1R5g8jBqykJfjBUQ0hKWwXf767hbALC3zOoOIofKYSDWu5n04JQ==}
+    requiresBuild: true
+    dev: false
+    optional: true
 
   /@types/geojson@7946.0.13:
     resolution: {integrity: sha512-bmrNrgKMOhM3WsafmbGmC+6dsF2Z308vLFsQ3a/bT8X8Sv5clVYpPars/UPq+sAaJP+5OoLAYgwbkS5QEJdLUQ==}
@@ -2311,7 +2330,6 @@ packages:
 
   /leaflet@1.9.3:
     resolution: {integrity: sha512-iB2cR9vAkDOu5l3HAay2obcUHZ7xwUBBjph8+PGtmW/2lYhbLizWtG7nTeYht36WfOslixQF9D/uSIzhZgGMfQ==}
-    dev: true
 
   /levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}

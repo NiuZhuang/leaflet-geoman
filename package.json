@@ -21,6 +21,7 @@
   "main": "dist/leaflet-geoman.js",
   "types": "dist/leaflet-geoman.d.ts",
   "dependencies": {
+    "@elfalem/leaflet-curve": "^0.9.2",
     "@turf/boolean-contains": "^6.5.0",
     "@turf/kinks": "^6.5.0",
     "@turf/line-intersect": "^6.5.0",

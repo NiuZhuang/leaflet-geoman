@@ -12,6 +12,7 @@ const Toolbar = L.Class.extend({
     drawPolygon: true,
     drawCircle: true,
     drawCircleMarker: true,
+    drawBezierCurve: true,
     drawText: true,
     editMode: true,
     dragMode: true,
@@ -122,6 +123,7 @@ const Toolbar = L.Class.extend({
         drawPolyline: 'control-icon leaflet-pm-icon-polyline',
         drawRectangle: 'control-icon leaflet-pm-icon-rectangle',
         drawPolygon: 'control-icon leaflet-pm-icon-polygon',
+        drawBezierCurve: 'control-icon leaflet-pm-icon-bezier-curve',
         drawCircle: 'control-icon leaflet-pm-icon-circle',
         drawCircleMarker: 'control-icon leaflet-pm-icon-circle-marker',
         editMode: 'control-icon leaflet-pm-icon-edit',
@@ -244,6 +246,22 @@ const Toolbar = L.Class.extend({
       className: 'control-icon leaflet-pm-icon-polyline',
       title: getTranslation('buttonTitles.drawLineButton'),
       jsClass: 'Line',
+      onClick: () => {},
+      afterClick: (e, ctx) => {
+        // toggle drawing mode
+        this.map.pm.Draw[ctx.button._button.jsClass].toggle();
+      },
+      doToggle: true,
+      toggleStatus: false,
+      disableOtherButtons: true,
+      position: this.options.position,
+      actions: ['finish', 'removeLastVertex', 'cancel'],
+    };
+
+    const drawBezierCurveButton = {
+      className: 'control-icon leaflet-pm-icon-bezier-curve',
+      title: getTranslation('buttonTitles.drawBezierCurveButton'),
+      jsClass: 'BezierCurve',
       onClick: () => {},
       afterClick: (e, ctx) => {
         // toggle drawing mode
@@ -403,6 +421,10 @@ const Toolbar = L.Class.extend({
 
     this._addButton('drawMarker', new L.Control.PMButton(drawMarkerButton));
     this._addButton('drawPolyline', new L.Control.PMButton(drawLineButton));
+    this._addButton(
+      'drawBezierCurve',
+      new L.Control.PMButton(drawBezierCurveButton)
+    );
     this._addButton('drawRectangle', new L.Control.PMButton(drawRectButton));
     this._addButton('drawPolygon', new L.Control.PMButton(drawPolyButton));
     this._addButton('drawCircle', new L.Control.PMButton(drawCircleButton));
@@ -695,6 +717,7 @@ const Toolbar = L.Class.extend({
       Marker: 'drawMarker',
       Circle: 'drawCircle',
       Polygon: 'drawPolygon',
+      BezierCurve: 'drawBezierCurve',
       Rectangle: 'drawRectangle',
       Polyline: 'drawPolyline',
       Line: 'drawPolyline',

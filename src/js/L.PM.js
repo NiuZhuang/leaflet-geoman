@@ -23,6 +23,7 @@ import './Draw/L.PM.Draw.CircleMarker';
 import './Draw/L.PM.Draw.Circle';
 import './Draw/L.PM.Draw.Cut';
 import './Draw/L.PM.Draw.Text';
+import './Draw/L.PM.Draw.BezierCurve';
 
 import Edit from './Edit/L.PM.Edit';
 import './Edit/L.PM.Edit.LayerGroup';
@@ -34,7 +35,7 @@ import './Edit/L.PM.Edit.CircleMarker';
 import './Edit/L.PM.Edit.Circle';
 import './Edit/L.PM.Edit.ImageOverlay';
 import './Edit/L.PM.Edit.Text';
-
+import './Edit/L.PM.Edit.BezierCurve';
 import '../css/layers.css';
 import '../css/controls.css';
 
@@ -146,6 +147,20 @@ L.PM = L.PM || {
 
     L.Polyline.addInitHook(initPolyline);
 
+    function initBezierCurve() {
+      this.pm = undefined;
+
+      if (L.PM.optIn) {
+        if (this.options.pmIgnore === false) {
+          this.pm = new L.PM.Edit.BezierCurve(this);
+        }
+      } else if (!this.options.pmIgnore) {
+        this.pm = new L.PM.Edit.BezierCurve(this);
+      }
+    }
+
+    L.BezierCurve.addInitHook(initBezierCurve);
+
     function initPolygon() {
       this.pm = undefined;
 
@@ -238,6 +253,8 @@ L.PM = L.PM || {
       layer.pm = new L.PM.Edit.LayerGroup(layer);
     } else if (layer instanceof L.ImageOverlay) {
       layer.pm = new L.PM.Edit.ImageOverlay(layer);
+    } else if (layer instanceof L.BezierCurve) {
+      layer.pm = new L.PM.Edit.BezierCurve(layer);
     }
   },
 };
