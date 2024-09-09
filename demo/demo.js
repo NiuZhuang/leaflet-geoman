@@ -80,6 +80,7 @@ map2.pm.addControls({
   drawPolygon: true,
   editMode: true,
   drawPolyline: true,
+  drawBezierCurve: true,
   removalMode: true,
 });
 

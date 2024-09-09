@@ -147,19 +147,19 @@ L.PM = L.PM || {
 
     L.Polyline.addInitHook(initPolyline);
 
-    function initBezierCurve() {
-      this.pm = undefined;
+    // function initBezierCurve() {
+    //   this.pm = undefined;
 
-      if (L.PM.optIn) {
-        if (this.options.pmIgnore === false) {
-          this.pm = new L.PM.Edit.BezierCurve(this);
-        }
-      } else if (!this.options.pmIgnore) {
-        this.pm = new L.PM.Edit.BezierCurve(this);
-      }
-    }
+    //   if (L.PM.optIn) {
+    //     if (this.options.pmIgnore === false) {
+    //       this.pm = new L.PM.Edit.BezierCurve(this);
+    //     }
+    //   } else if (!this.options.pmIgnore) {
+    //     this.pm = new L.PM.Edit.BezierCurve(this);
+    //   }
+    // }
 
-    L.BezierCurve.addInitHook(initBezierCurve);
+    // L.BezierCurve.addInitHook(initBezierCurve);
 
     function initPolygon() {
       this.pm = undefined;
